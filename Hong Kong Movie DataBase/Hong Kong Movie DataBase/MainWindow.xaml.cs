@@ -24,5 +24,10 @@ namespace Hong_Kong_Movie_DataBase
         {
             InitializeComponent();
         }
+
+        private void btnActor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
