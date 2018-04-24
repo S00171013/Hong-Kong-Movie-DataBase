@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HKMoviesStoreContainer" CdmEntityContainer="HKMoviesContainer">
+    <EntitySetMapping Name="Films">
+      <EntityTypeMapping TypeName="IsTypeOf(HKMovies.Film)">
+        <MappingFragment StoreEntitySet="Films">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="RunningTime" ColumnName="RunningTime" />
+          <ScalarProperty Name="PosterImage" ColumnName="PosterImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actors">
+      <EntityTypeMapping TypeName="IsTypeOf(HKMovies.Actor)">
+        <MappingFragment StoreEntitySet="Actors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FilmActor" TypeName="HKMovies.FilmActor" StoreEntitySet="FilmActor">
+      <EndProperty Name="Film">
+        <ScalarProperty Name="Id" ColumnName="Films_Id" />
+      </EndProperty>
+      <EndProperty Name="Actor">
+        <ScalarProperty Name="Id" ColumnName="Actors_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

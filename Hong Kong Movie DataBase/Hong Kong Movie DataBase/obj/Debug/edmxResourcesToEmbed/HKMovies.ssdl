@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HKMovies.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HKMoviesStoreContainer">
+    <EntitySet Name="Films" EntityType="HKMovies.Store.Films" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Actors" EntityType="HKMovies.Store.Actors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FilmActor" EntityType="HKMovies.Store.FilmActor" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_FilmActor_Film" Association="HKMovies.Store.FK_FilmActor_Film">
+      <End Role="Film" EntitySet="Films" />
+      <End Role="FilmActor" EntitySet="FilmActor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FilmActor_Actor" Association="HKMovies.Store.FK_FilmActor_Actor">
+      <End Role="Actor" EntitySet="Actors" />
+      <End Role="FilmActor" EntitySet="FilmActor" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Films">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReleaseDate" Type="datetime" Nullable="false" />
+    <Property Name="Director" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RunningTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PosterImage" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Actors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FilmActor">
+    <Key>
+      <PropertyRef Name="Films_Id" />
+      <PropertyRef Name="Actors_Id" />
+    </Key>
+    <Property Name="Films_Id" Type="int" Nullable="false" />
+    <Property Name="Actors_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FilmActor_Film">
+    <End Role="Film" Type="HKMovies.Store.Films" Multiplicity="1" />
+    <End Role="FilmActor" Type="HKMovies.Store.FilmActor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FilmActor">
+        <PropertyRef Name="Films_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FilmActor_Actor">
+    <End Role="FilmActor" Type="HKMovies.Store.FilmActor" Multiplicity="*" />
+    <End Role="Actor" Type="HKMovies.Store.Actors" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FilmActor">
+        <PropertyRef Name="Actors_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
