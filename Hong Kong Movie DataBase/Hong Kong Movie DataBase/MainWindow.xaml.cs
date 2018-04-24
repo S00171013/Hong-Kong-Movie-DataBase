@@ -27,7 +27,9 @@ namespace Hong_Kong_Movie_DataBase
 
         private void btnActor_Click(object sender, RoutedEventArgs e)
         {
+            Button clickedButton = sender as Button;
 
+            txtBlkDescription.Text = clickedButton.Content.ToString();
         }
     }
 }

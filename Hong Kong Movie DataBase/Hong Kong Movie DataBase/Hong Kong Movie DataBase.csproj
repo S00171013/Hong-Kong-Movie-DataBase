@@ -95,6 +95,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Actor Images\Bruce Lee.png" />
+    <Resource Include="Actor Images\Donnie Yen.png" />
+    <Resource Include="Actor Images\Jackie Chan.png" />
+    <Resource Include="Actor Images\Jet Li.png" />
+    <Resource Include="Actor Images\Michelle Yeoh Small.png" />
+    <Resource Include="Actor Images\Michelle Yeoh.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
