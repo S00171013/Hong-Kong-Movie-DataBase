@@ -93,7 +93,7 @@
             <Label Grid.Row="3" Grid.Column="1" Name="lblActors" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
 
             <!--Running Time-->
-            <Label Grid.Row="4" Grid.Column="0" Content="RunningTime: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Running Time: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
             <Label Grid.Row="4" Grid.Column="1" Name="lblRunningTime" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
 
         </Grid>
