@@ -6,6 +6,26 @@
         xmlns:local="clr-namespace:Hong_Kong_Movie_DataBase"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="690" Background="DarkRed">
+
+    <Window.Resources>
+        <!--Data Template for filmography listbox.-->
+        <DataTemplate x:Key="filmographyTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{Binding ReleaseDate}" Grid.Column="0"  FontWeight="Medium" Foreground="DarkCyan"  FontFamily="Microsoft JhengHei"/>
+                <Label Content="{Binding Title}" Grid.Column="1"  FontWeight="ExtraBold" Foreground="DarkRed" FontFamily="Microsoft JhengHei"/>
+                <Label Content="{Binding Director}" Grid.Column="2"  FontWeight="Medium" Foreground="DarkSlateGray" FontFamily="Microsoft JhengHei"/>
+            </Grid>
+
+        </DataTemplate>
+    </Window.Resources>
+
+
     <Grid>
         <!--Primary Grid Definitions-->
         <Grid.RowDefinitions>
@@ -56,7 +76,8 @@
         <Label Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Filmography" FontSize="28" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
 
         <!--Filmography ListBox-->
-        <ListBox Name="lbxFilmography" Grid.Row="3" Grid.ColumnSpan="3" Width="380" Height="280" Background="Yellow" Foreground="DarkRed" SelectionChanged="lbxFilmography_SelectionChanged"/>
+        <ListBox Name="lbxFilmography" Grid.Row="3" Grid.ColumnSpan="3" Width="380" Height="280" Background="Yellow" Foreground="DarkRed" SelectionChanged="lbxFilmography_SelectionChanged"
+                 ItemTemplate="{StaticResource filmographyTemplate}"/>
 
         <!--Film Info Grid-->
         <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Height="275">
@@ -70,31 +91,31 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!--Film information Section-->
 
             <!--Film Name-->
-            <Label Grid.Row="0" Grid.Column="0" Content="Name: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
-            <Label Grid.Row="0" Grid.Column="1" Name="lblName" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name: " VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="0" Grid.Column="1" Name="lblName" Content="" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="180" Height="26"/>
 
             <!--Release Date-->
-            <Label Grid.Row="1" Grid.Column="0" Content="Release Date: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
-            <Label Grid.Row="1" Grid.Column="1" Name="lblYear" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Release Date: " VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="1" Grid.Column="1" Name="lblYear" Content="" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="180" Height="24"/>
 
             <!--Director-->
-            <Label Grid.Row="2" Grid.Column="0" Content="Director: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
-            <Label Grid.Row="2" Grid.Column="1" Name="lblDirector" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Director: " VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="2" Grid.Column="1" Name="lblDirector" Content="" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="180" Height="26"/>
 
             <!--Actors-->
-            <Label Grid.Row="3" Grid.Column="0" Content="Actors: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
-            <Label Grid.Row="3" Grid.Column="1" Name="lblActors" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Actors: " VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="3" Grid.Column="1" Name="lblActors" Content="" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="180" Height="24"/>
 
             <!--Running Time-->
-            <Label Grid.Row="4" Grid.Column="0" Content="Running Time: " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
-            <Label Grid.Row="4" Grid.Column="1" Name="lblRunningTime" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="100" Height="30"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Running Time: " VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
+            <Label Grid.Row="4" Grid.Column="1" Name="lblRunningTime" Content="" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Yellow" FontFamily="Microsoft JhengHei" Width="180" Height="24"/>
 
         </Grid>
 
