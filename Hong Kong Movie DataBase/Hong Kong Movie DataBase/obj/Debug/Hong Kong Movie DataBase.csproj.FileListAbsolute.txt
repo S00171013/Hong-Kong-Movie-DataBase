@@ -33,3 +33,10 @@ C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hon
 C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Hong Kong Movie DataBase_Content.g.cs
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\EntityFramework.dll
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\Newtonsoft.Json.dll
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\EntityFramework.xml
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\bin\Debug\Newtonsoft.Json.xml
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Hong Kong Movie DataBase_Content.g.cs
