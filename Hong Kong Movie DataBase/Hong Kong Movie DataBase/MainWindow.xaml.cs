@@ -69,23 +69,23 @@ namespace Hong_Kong_Movie_DataBase
             txtBlkDescription.Text = clickedButton.Content.ToString();
 
             // Display actor image.
-            imgActor.Source = new BitmapImage(new Uri("Actor Images/"+clickedButton.Content.ToString()+".png", UriKind.Relative));
+            imgActor.Source = new BitmapImage(new Uri("Actor Images/" + clickedButton.Content.ToString() + ".png", UriKind.Relative));
 
             #region Rough Test
-           // movieTest = new Film();
-           // movieTest.Title = "Snake in the Eagle's Shadow";
-           // movieTest.ReleaseDate = new DateTime(1996, 3, 24);
-           // movieTest.Director = "Yuen Woo-Ping";
-           // movieTest.RunningTime = "98 Mins";
-           // movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";
+            movieTest = new Film();
+            movieTest.Title = "Snake in the Eagle's Shadow";
+            movieTest.ReleaseDate = new DateTime(1996, 3, 24);
+            movieTest.Director = "Yuen Woo-Ping";
+            movieTest.RunningTime = "98 Mins";
+            movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";
 
-           // lblName.Content = movieTest.Title;
-           // lblYear.Content = movieTest.ReleaseDate;
-           // lblDirector.Content = movieTest.Director;
-           // lblRunningTime.Content = movieTest.RunningTime;
+            lblName.Content = movieTest.Title;
+            lblYear.Content = movieTest.ReleaseDate;
+            lblDirector.Content = movieTest.Director;
+            lblRunningTime.Content = movieTest.RunningTime;
 
-           // Display film image.
-           //imgMoviePoster.Source = new BitmapImage(new Uri(movieTest.PosterImage));
+            // Display film image.
+            imgMoviePoster.Source = new BitmapImage(new Uri(movieTest.PosterImage));
             #endregion
 
             //filmographyToDisplay.Add(movieTest);
@@ -94,15 +94,15 @@ namespace Hong_Kong_Movie_DataBase
             // Display actor bio in textblock. Should add to DB Model.
 
             // Display rough list of films.
-            var query = from f in db.Films
-                        orderby f.ReleaseDate
-                        select f.Title;
+            //var query = from f in db.Films
+            //            orderby f.ReleaseDate
+            //            select f.Title;
 
-            lbxFilmography.ItemsSource = query.ToList();
+            //lbxFilmography.ItemsSource = query.ToList();
         }
 
         private void lbxFilmography_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {                                             
+        {
             //// Get selected film.
             //Film selectedFilm = lbxFilmography.SelectedItem as Film;
 
