@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hong_Kong_Movie_DataBase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="690" Background="DarkRed">
+        Title="MainWindow" Height="800" Width="750" Background="DarkRed">
 
     <Window.Resources>
         <!--Data Template for filmography listbox.-->
@@ -54,7 +54,7 @@
         <Button Grid.Row="1" Background="Yellow" Foreground="DarkRed" FontWeight="ExtraBold" Grid.Column="4" Height="30" Width="90" Content="Michelle Yeoh" Click="btnActor_Click"/>
 
         <!--Actor Description-->
-        <TextBlock Name="txtBlkDescription" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="center" Foreground="Yellow" FontFamily="Microsoft JhengHei" FontSize="12" Width="360" Height="150" VerticalAlignment="Center"/>
+        <TextBlock Name="txtBlkDescription" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="center" Foreground="Yellow" FontFamily="Microsoft JhengHei" FontSize="12" Width="360" Height="150" VerticalAlignment="Top"/>
 
         <!--Image Grid-->
         <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
@@ -72,9 +72,15 @@
 
         </Grid>
 
+        <!--View watchlist button-->
+        <Button Name="btnViewWatchlist" Grid.Row="2" Grid.Column="0" Width="100" Height="40" VerticalAlignment="Bottom" Content="View Watchlist" Background="DarkCyan" Foreground="White" Click="btnViewWatchlist_Click"/>
+
         <!--Filmography Heading-->
         <Label Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Filmography" FontSize="28" Foreground="Yellow" FontFamily="Microsoft JhengHei"/>
 
+         <!--Add to watchlist button-->
+        <Button Name="btnAddFilm" Grid.Row="2" Grid.Column="2" Width="100" Height="40" VerticalAlignment="Bottom" Content="Add to Watchlist" Background="DarkCyan" Foreground="White" Click="btnAddFilm_Click"/>
+        
         <!--Filmography ListBox-->
         <ListBox Name="lbxFilmography" Grid.Row="3" Grid.ColumnSpan="3" Width="380" Height="280" Background="Yellow" Foreground="DarkRed" SelectionChanged="lbxFilmography_SelectionChanged"
                  ItemTemplate="{StaticResource filmographyTemplate}"/>

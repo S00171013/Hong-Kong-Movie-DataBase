@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Core;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,14 @@ namespace Hong_Kong_Movie_DataBase
 
         // Set up observable collection of films to display.
         public ObservableCollection<Film> filmographyToDisplay = new ObservableCollection<Film>();
+
+
+        // Variables for JSON functionality.
+        string json;
+
+        // Set up observable collection of films added to watchlist.
+        public ObservableCollection<Film> watchlistFilms = new ObservableCollection<Film>();
+
 
         #region Checklist
         // Unfinished
@@ -60,7 +70,7 @@ namespace Hong_Kong_Movie_DataBase
         {
             InitializeComponent();
         }
-
+        
         private void btnActor_Click(object sender, RoutedEventArgs e)
         {
             // Get button clicked.
@@ -73,13 +83,17 @@ namespace Hong_Kong_Movie_DataBase
             imgActor.Source = new BitmapImage(new Uri("Actor Images/" + clickedButton.Content.ToString() + ".png", UriKind.Relative));
 
             #region Rough Test with temporary film objects.
+
+            // Clear list.
+            filmographyToDisplay.Clear();
+
             // Test film 1.
             movieTest = new Film();
             movieTest.Title = "Snake in the Eagle's Shadow";
             movieTest.ReleaseDate = new DateTime(1996, 3, 24);
             movieTest.Director = "Yuen Woo-Ping";
             movieTest.RunningTime = "98 Mins";
-            movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";            
+            movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";
 
             filmographyToDisplay.Add(movieTest);
 
@@ -89,7 +103,7 @@ namespace Hong_Kong_Movie_DataBase
             mT2.ReleaseDate = new DateTime(1971, 10, 23);
             mT2.Director = "Lo Wei";
             mT2.RunningTime = "99 Mins";
-            mT2.PosterImage = "https://upload.wikimedia.org/wikipedia/en/0/01/TheBigBossposter.JPG";          
+            mT2.PosterImage = "https://upload.wikimedia.org/wikipedia/en/0/01/TheBigBossposter.JPG";
 
             filmographyToDisplay.Add(mT2);
 
@@ -98,13 +112,12 @@ namespace Hong_Kong_Movie_DataBase
             mT3 = new Film();
             mT3.Title = "City Hunter";
             mT3.ReleaseDate = new DateTime(1993, 1, 14);
-            mT3.Director = "";
-            mT3.RunningTime = "99 Mins";
-            mT3.PosterImage = "https://upload.wikimedia.org/wikipedia/en/0/01/TheBigBossposter.JPG";
+            mT3.Director = "Wong Jing";
+            mT3.RunningTime = "105 Mins";
+            mT3.PosterImage = "https://upload.wikimedia.org/wikipedia/en/5/55/City_Hunter_%28film%29.jpg";
 
             filmographyToDisplay.Add(mT3);
-
-
+          
             lbxFilmography.ItemsSource = filmographyToDisplay;
             #endregion
 
@@ -120,12 +133,12 @@ namespace Hong_Kong_Movie_DataBase
 
                 lbxFilmography.ItemsSource = query.ToList();
             }
-            catch(EntityException eE)
+            catch (EntityException eE)
             {
                 MessageBox.Show("Something went wrong - The filmography database could not be loaded correctly.");
             }
             #endregion
-        }
+        }        
 
         private void lbxFilmography_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -141,8 +154,32 @@ namespace Hong_Kong_Movie_DataBase
                 lblRunningTime.Content = selectedFilm.RunningTime;
 
                 // Display film image.
-                imgMoviePoster.Source = new BitmapImage(new Uri(selectedFilm.PosterImage, UriKind.Relative));
+                imgMoviePoster.Source = new BitmapImage(new Uri(selectedFilm.PosterImage));
             }
+        }
+
+        private void btnAddFilm_Click(object sender, RoutedEventArgs e)
+        {
+            // Get selected film.
+            Film selectedFilm = lbxFilmography.SelectedItem as Film;
+
+            if(selectedFilm != null)
+            {
+                // Create Json string.
+                json = JsonConvert.SerializeObject(selectedFilm, Formatting.Indented);
+
+                // Write to the file.
+                using (StreamWriter w = new StreamWriter(@"Watchlist.json"))
+                {
+                    w.Write(json);
+                }
+            }
+        }
+
+        private void btnViewWatchlist_Click(object sender, RoutedEventArgs e)
+        {
+            // Open connection to the file.
+            StreamReader r = new StreamReader(@"Watchlist.json");
         }
     }
 }
