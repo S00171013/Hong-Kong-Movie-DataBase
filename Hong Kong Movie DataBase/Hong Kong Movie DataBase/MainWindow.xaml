@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hong_Kong_Movie_DataBase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="750" Background="DarkRed">
+        Title="MainWindow" Height="800" Width="750" Background="DarkRed" Loaded="Window_Loaded">
 
     <Window.Resources>
-        <!--Data Template for filmography listbox.-->
+        <!--Data Template for Filmography Listbox.-->
         <DataTemplate x:Key="filmographyTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>

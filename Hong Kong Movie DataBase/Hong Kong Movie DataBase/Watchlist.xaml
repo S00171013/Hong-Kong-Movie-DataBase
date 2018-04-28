@@ -4,8 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hong_Kong_Movie_DataBase"
-        mc:Ignorable="d"
-        Title="Watchlist" Height="400" Width="400" Background="DarkRed">
+        mc:Ignorable="d"     
+        Title="Watchlist" Height="400" Width="550" Background="DarkRed" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <!--Data Template for Watchlist Listbox-->
+        <DataTemplate x:Key="watchlistTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{Binding ReleaseDate}" Grid.Column="0"  FontWeight="Medium" Foreground="DarkCyan"  FontFamily="Microsoft JhengHei"/>
+                <Label Content="{Binding Title}" Grid.Column="1"  FontWeight="ExtraBold" Foreground="DarkRed" FontFamily="Microsoft JhengHei"/>
+                <Label Content="{Binding Director}" Grid.Column="2"  FontWeight="Medium" Foreground="DarkSlateGray" FontFamily="Microsoft JhengHei"/>
+            </Grid>
+
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <!--Window Heading-->
         <Label Content="Watchlist" HorizontalAlignment="Center" Foreground="Yellow" FontSize="30" FontFamily="Microsoft JhengHei"/>
@@ -28,7 +47,8 @@
             </Grid.ColumnDefinitions>
 
             <!--Watchlist-->
-            <ListBox Name="lbxWatchlist" Grid.Row="1" Grid.RowSpan="3" Background="Yellow"/>
+            <ListBox Name="lbxWatchlist" Grid.Row="1" Grid.RowSpan="3" Background="Yellow"
+                     ItemTemplate="{StaticResource watchlistTemplate}" SelectionChanged="lbxWatchlist_SelectionChanged"/>
 
             <!--Movie Image-->
             <Image Name="imgWMoviePoster" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Height="130" Width="170" />
@@ -66,11 +86,11 @@
             </Grid>
 
             <!--Buttons for Saving, Removing and Returning-->
-            <Button Name="btnSaveWatchlist" Grid.Row="4" Width="100" Height="30" Content="Save Watchlist" Background="DarkCyan" Foreground="White" />
+            <Button Name="btnSaveWatchlist" Grid.Row="4" Width="100" Height="30" Content="Save Watchlist" Background="DarkCyan" Foreground="White" Click="btnSaveWatchlist_Click" />
 
-            <Button Name="btnRemoveFilm" Grid.Row="5" Width="100" Height="30" Visibility="Hidden" Content="Remove Film" Background="DarkCyan" Foreground="White" />
+            <Button Name="btnRemoveFilm" Grid.Row="5" Width="100" Height="30" Visibility="Hidden" Content="Remove Film" Background="DarkCyan" Foreground="White" Click="btnRemoveFilm_Click" />
 
-            <Button Name="btnReturn" Grid.Row="6" Width="100" Height="30" Content="Return to HKMDB" Background="DarkCyan" Foreground="White" />
+            <Button Name="btnReturn" Grid.Row="6" Width="100" Height="30" Content="Return to HKMDB" Background="DarkCyan" Foreground="White" Click="btnReturn_Click" />
 
         </Grid>
     </Grid>

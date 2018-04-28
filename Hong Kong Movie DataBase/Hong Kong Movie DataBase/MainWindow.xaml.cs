@@ -24,11 +24,16 @@ namespace Hong_Kong_Movie_DataBase
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Set up object for watchlist window.
+        Watchlist watchlistWindow;
+
+        // Bool to make sure duplicate films aren't added to the watchlist.
+        bool alreadyAdded = false;
+
         Film movieTest, mT2, mT3;
 
         // Set up observable collection of films to display.
         public ObservableCollection<Film> filmographyToDisplay = new ObservableCollection<Film>();
-
 
         // Variables for JSON functionality.
         string json;
@@ -70,7 +75,19 @@ namespace Hong_Kong_Movie_DataBase
         {
             InitializeComponent();
         }
-        
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Set up watchlist window.
+            watchlistWindow = new Watchlist();
+
+            // Set the owner of this window.
+            watchlistWindow.Owner = this;
+
+            // Set up the watchlist.
+            watchlistWindow.watchlistFilms = new ObservableCollection<Film>();     
+        }
+
         private void btnActor_Click(object sender, RoutedEventArgs e)
         {
             // Get button clicked.
@@ -156,7 +173,7 @@ namespace Hong_Kong_Movie_DataBase
                 // Display film image.
                 imgMoviePoster.Source = new BitmapImage(new Uri(selectedFilm.PosterImage));
             }
-        }
+        }        
 
         private void btnAddFilm_Click(object sender, RoutedEventArgs e)
         {
@@ -165,21 +182,26 @@ namespace Hong_Kong_Movie_DataBase
 
             if(selectedFilm != null)
             {
-                // Create Json string.
-                json = JsonConvert.SerializeObject(selectedFilm, Formatting.Indented);
-
-                // Write to the file.
-                using (StreamWriter w = new StreamWriter(@"Watchlist.json"))
+                foreach(Film f in watchlistWindow.watchlistFilms)
                 {
-                    w.WriteLine(json);
+                    if(f.Title == selectedFilm.Title)
+                    {
+                        alreadyAdded = true;
+                        break;
+                    }
                 }
+
+                if (alreadyAdded == false)
+                {
+                    watchlistWindow.watchlistFilms.Add(selectedFilm);
+                }                            
             }
         }
 
         private void btnViewWatchlist_Click(object sender, RoutedEventArgs e)
-        {
-            // Open connection to the file.
-            StreamReader r = new StreamReader(@"Watchlist.json");
+        {        
+            // Display the watchlist window.
+            watchlistWindow.ShowDialog();
         }
     }
 }
