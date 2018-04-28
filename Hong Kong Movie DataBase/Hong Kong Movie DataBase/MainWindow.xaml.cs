@@ -131,7 +131,7 @@ namespace Hong_Kong_Movie_DataBase
                             orderby f.ReleaseDate
                             select f.Title;
 
-                lbxFilmography.ItemsSource = query.ToList();
+               // lbxFilmography.ItemsSource = query.ToList();
             }
             catch (EntityException eE)
             {
@@ -171,7 +171,7 @@ namespace Hong_Kong_Movie_DataBase
                 // Write to the file.
                 using (StreamWriter w = new StreamWriter(@"Watchlist.json"))
                 {
-                    w.Write(json);
+                    w.WriteLine(json);
                 }
             }
         }
