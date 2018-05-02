@@ -69,7 +69,7 @@ namespace Hong_Kong_Movie_DataBase
         #endregion
 
         // Set up database.
-        HKMoviesContainer db = new HKMoviesContainer();
+        HKMoviesContainer db = new HKMoviesContainer();       
 
         public MainWindow()
         {
@@ -105,55 +105,55 @@ namespace Hong_Kong_Movie_DataBase
             filmographyToDisplay.Clear();
 
             // Test film 1.
-            movieTest = new Film();
-            movieTest.Title = "Snake in the Eagle's Shadow";
-            movieTest.ReleaseDate = new DateTime(1996, 3, 24);
-            movieTest.Director = "Yuen Woo-Ping";
-            movieTest.RunningTime = "98 Mins";
-            movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";
+            //movieTest = new Film();
+            //movieTest.Title = "Snake in the Eagle's Shadow";
+            //movieTest.ReleaseDate = new DateTime(1996, 3, 24);
+            //movieTest.Director = "Yuen Woo-Ping";
+            //movieTest.RunningTime = "98 Mins";
+            //movieTest.PosterImage = "https://ia.media-imdb.com/images/M/MV5BODQyNTYxMDktODYwMi00MWY4LWFiZWYtODRjOWVhYWJiMzY2XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_UX182_CR0,0,182,268_AL_.jpg";
 
-            filmographyToDisplay.Add(movieTest);
+            //filmographyToDisplay.Add(movieTest);
 
-            // Test film 2.
-            mT2 = new Film();
-            mT2.Title = "The Big Boss";
-            mT2.ReleaseDate = new DateTime(1971, 10, 23);
-            mT2.Director = "Lo Wei";
-            mT2.RunningTime = "99 Mins";
-            mT2.PosterImage = "https://upload.wikimedia.org/wikipedia/en/0/01/TheBigBossposter.JPG";
+            //// Test film 2.
+            //mT2 = new Film();
+            //mT2.Title = "The Big Boss";
+            //mT2.ReleaseDate = new DateTime(1971, 10, 23);
+            //mT2.Director = "Lo Wei";
+            //mT2.RunningTime = "99 Mins";
+            //mT2.PosterImage = "https://upload.wikimedia.org/wikipedia/en/0/01/TheBigBossposter.JPG";
 
-            filmographyToDisplay.Add(mT2);
+            //filmographyToDisplay.Add(mT2);
 
 
-            // Test film 3.
-            mT3 = new Film();
-            mT3.Title = "City Hunter";
-            mT3.ReleaseDate = new DateTime(1993, 1, 14);
-            mT3.Director = "Wong Jing";
-            mT3.RunningTime = "105 Mins";
-            mT3.PosterImage = "https://upload.wikimedia.org/wikipedia/en/5/55/City_Hunter_%28film%29.jpg";
+            //// Test film 3.
+            //mT3 = new Film();
+            //mT3.Title = "City Hunter";
+            //mT3.ReleaseDate = new DateTime(1993, 1, 14);
+            //mT3.Director = "Wong Jing";
+            //mT3.RunningTime = "105 Mins";
+            //mT3.PosterImage = "https://upload.wikimedia.org/wikipedia/en/5/55/City_Hunter_%28film%29.jpg";
 
-            filmographyToDisplay.Add(mT3);
-          
-            lbxFilmography.ItemsSource = filmographyToDisplay;
+            //filmographyToDisplay.Add(mT3);
+
+            //lbxFilmography.ItemsSource = filmographyToDisplay;
             #endregion
 
             // Display actor bio in textblock. Should add to DB Model.
 
             #region DB Info test.
             // Display rough list of films.
-            try
-            {
-                var query = from f in db.Films
-                            orderby f.ReleaseDate
-                            select f.Title;
+            //try
+            //{
+            var query = from f in db.Films
+                        orderby f.ReleaseDate
+                        select f.Title;
 
-               // lbxFilmography.ItemsSource = query.ToList();
-            }
-            catch (EntityException eE)
-            {
-                MessageBox.Show("Something went wrong - The filmography database could not be loaded correctly.");
-            }
+            lbxFilmography.ItemsSource = query.ToList();
+            //}
+            //catch (EntityException eE)
+            //{
+            //    MessageBox.Show("Something went wrong - The filmography database could not be loaded correctly.");
+            //}
             #endregion
         }        
 

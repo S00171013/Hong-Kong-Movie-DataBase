@@ -42,3 +42,5 @@ C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBas
 C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Hong Kong Movie DataBase_Content.g.cs
 C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Watchlist.g.cs
 C:\Users\Jack\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Watchlist.baml
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Watchlist.g.cs
+C:\Users\s00171013\Source\Repos\Hong-Kong-Movie-DataBase\Hong Kong Movie DataBase\Hong Kong Movie DataBase\obj\Debug\Watchlist.baml
